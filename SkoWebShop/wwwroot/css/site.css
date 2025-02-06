@@ -20,3 +20,41 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+body {
+    background-color: #eee
+}
+
+.container {
+    position: relative
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.buttons {
+    padding: 10px;
+    background-color: #d6d4d4;
+    border-radius: 8px;
+    position: relative
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    left: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: #fff;
+    opacity: 0
+}
