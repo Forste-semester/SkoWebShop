@@ -66,7 +66,26 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <form method="post" asp-page-handler="Logout">
-        <button type="submit" class="btn btn-danger">Logout</button>
-    </form>
+
+    @if (Request.Cookies["isLoggedIn"] == "true")
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">My Information</h5>
+                <p class="card-text">First Name: @Request.Cookies["userFirstName"]</p>
+                <p class="card-text">Last Name: @Request.Cookies["userLastName"]</p>
+                <p class="card-text">Street Name: @Request.Cookies["userStreetName"]</p>
+                <p class="card-text">Postal Code: @Request.Cookies["userPostalCode"]</p>
+                <p class="card-text">City: @Request.Cookies["userCity"]</p>
+                <p class="card-text">Email: @Request.Cookies["userEmail"]</p>
+                <p class="card-text">Phone: @Request.Cookies["userPhoneNumber"]</p>
+                <a asp-page="/EditUser" class="btn btn-primary">Edit Information</a>
+            </div>
+        </div>
+
+        <form method="post" asp-page-handler="Logout">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    }
 </div>

@@ -15,6 +15,8 @@ namespace SkoWebShop.Pages
 
         public User NewUser { get; set; }
 
+        public List<User> Users { get; set; }
+
         public LoginModel(UserService userService)
         {
 
@@ -23,7 +25,8 @@ namespace SkoWebShop.Pages
         }
         public void OnGet()
         {
-            
+          
+
         }
 
         public IActionResult OnPost(string action)
@@ -70,6 +73,11 @@ namespace SkoWebShop.Pages
                         Path = "/"
                     });
                     Response.Cookies.Append("userEmail", user.Email, new CookieOptions
+                    {
+                        Expires = DateTimeOffset.UtcNow.AddHours(24),
+                        Path = "/"
+                    });
+                    Response.Cookies.Append("userPassword", user.Password, new CookieOptions
                     {
                         Expires = DateTimeOffset.UtcNow.AddHours(24),
                         Path = "/"

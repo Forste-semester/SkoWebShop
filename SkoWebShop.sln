@@ -3,12 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkoWebShop", "SkoWebShop\SkoWebShop.csproj", "{15209C36-321E-4FFA-A6C2-3A17EB2F26D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkoWebShop", "SkoWebShop\SkoWebShop.csproj", "{15209C36-321E-4FFA-A6C2-3A17EB2F26D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{DF78B876-EDEF-44B2-B38B-4C56CDD9B59C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{15209C36-321E-4FFA-A6C2-3A17EB2F26D2} = {15209C36-321E-4FFA-A6C2-3A17EB2F26D2}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

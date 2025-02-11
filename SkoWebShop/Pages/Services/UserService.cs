@@ -1,4 +1,5 @@
-﻿using SkoWebShop.Pages.Models;
+﻿using Microsoft.VisualBasic;
+using SkoWebShop.Pages.Models;
 
 namespace SkoWebShop.Pages.Services
 {
@@ -6,9 +7,9 @@ namespace SkoWebShop.Pages.Services
     {
         private List<User> users = new List<User>();
 
-        public UserService() { 
+        public UserService() 
+        { 
         
-          
         }
 
 
@@ -45,5 +46,29 @@ namespace SkoWebShop.Pages.Services
             }
             return null;
         }
+
+
+
+        public void UpdateUser(User updatedUser)
+        {
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (users[i].Email == updatedUser.Email) // Find user by email
+                {
+                    // ✅ Update user properties
+                    users[i].FirstName = updatedUser.FirstName;
+                    users[i].LastName = updatedUser.LastName;
+                    users[i].StreetName = updatedUser.StreetName;
+                    users[i].PostalCode = updatedUser.PostalCode;
+                    users[i].City = updatedUser.City;
+                    users[i].PhoneNumber = updatedUser.PhoneNumber;
+
+                    Console.WriteLine($"User {updatedUser.Email} updated successfully.");
+                    return;
+                }
+            }
+            Console.WriteLine("User not found!");
+        }
+
     }
 }

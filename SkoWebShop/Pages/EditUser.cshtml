@@ -1,0 +1,55 @@
+﻿@page
+@model SkoWebShop.Pages.EditUserModel
+@{
+}
+
+
+<h4 class="mb-3">Billing address</h4>
+
+<form method="post" class="needs-validation">
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label asp-for="NewUser.FirstName" class=" form-label">First Name</label>
+            <input asp-for="NewUser.FirstName" type="text" class="form-control" name="First Name" id="firstName" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="NewUser.LastName" class="form-label">Last Name</label>
+            <input asp-for="NewUser.LastName" type="text" class="form-control" name="NewUser.LastName" id="lastName" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <label asp-for="NewUser.StreetName" class="form-label">Street Name</label>
+            <input asp-for="NewUser.StreetName" type="text" class="form-control" name="NewUser.StreetName" id="streetName" placeholder="Ex.: Kirkevej 3" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label asp-for="NewUser.PostalCode" class="form-label">Postal Code</label>
+            <input asp-for="NewUser.PostalCode" type="number" class="form-control" name="NewUser.PostalCode" id="postalCode" placeholder="" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label asp-for="NewUser.City" class="form-label">City</label>
+            <input asp-for="NewUser.City" type="text" class="form-control" name="NewUser.City" id="city" placeholder="Ex.: Sorø" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label asp-for="NewUser.Email" class="form-label">Email</label>
+            <input asp-for="NewUser.Email" type="email" class="form-control" name="NewUser.Email" id="email" placeholder="email@hotmail.com" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm changes</button>
+    </div>
+</form>
