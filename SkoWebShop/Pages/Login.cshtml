@@ -1,0 +1,72 @@
+﻿@page
+@model SkoWebShop.Pages.LoginModel
+
+<script>
+    window.onload = function() {
+        // Check if the 'isLoggedIn' cookie exists and has the value 'true'
+        const isLoggedIn = getCookie("isLoggedIn");
+
+        if (isLoggedIn === "true") {
+            // If logged in, show the carousel and hide the login form
+            document.getElementById('carousel').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+        } else {
+            // If not logged in, show the login form and hide the carousel
+            document.getElementById('carousel').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+    };
+
+    // Function to get a cookie value by name
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+</script>
+
+<div id="loginForm">
+    <form method="post">
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="Email" name="NewUser.Email" required />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password" name="NewUser.Password" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="action" value="login">Login</button>
+        <button type="submit" class="btn btn-secondary" name="action" value="create">Create Account</button>
+    </form>
+</div>
+
+<div id="carousel" style="display:none;">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <form method="post" asp-page-handler="Logout">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>

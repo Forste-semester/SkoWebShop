@@ -8,6 +8,20 @@
 
         public User()
         {
+            FirstName = "Test";
+            LastName = "";
+            StreetName = "";
+            PostalCode = 0;
+            City = "";
+            Email = "";
+            PhoneNumber = "";
+            CardType = "";
+            CreditCardName = "";
+            CreditCardNumber = 0;
+            DateOfExpire = new DateTime();
+            this.CCV = 0;
+            Password = "";
+            IsLoggedIn = false;
         }
 
         public User(string firstName, string lastName, string streetName, int postalCode, string city, string email, string phoneNumber,string creditCardName, int creditCardNumber, int cardExpirationMonth, int cardExpirationYear, int CCV)
@@ -25,7 +39,8 @@
             CreditCardNumber = creditCardNumber;
             DateOfExpire = new DateTime(cardExpirationYear, cardExpirationMonth, 1);
             this.CCV = CCV;
-            
+            Password = "";
+            IsLoggedIn = false;
 
         }
 
@@ -52,6 +67,9 @@
         public DateTime DateOfExpire { get; set; }
 
         public int CCV { get; set; }
+        public string Password { get; set; }
+
+        public bool IsLoggedIn { get; set; }
 
 
 

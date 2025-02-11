@@ -14,10 +14,11 @@ namespace SkoWebShop.Pages
 
         public User NewUser { get; set; }
 
-        public ContactInfoModel(UserService userService) { 
+        public ContactInfoModel(UserService userService)
+        {
 
-        this._userService = userService;
-        
+            this._userService = userService;
+
         }
 
         public void OnGet()
@@ -25,11 +26,13 @@ namespace SkoWebShop.Pages
 
         }
 
-        public IActionResult OnPost() { 
-        
-        _userService.AddUser(NewUser);
+        public IActionResult OnPost()
+        {
 
-         return RedirectToPage("Index");
-        }  
+            _userService.AddUser(NewUser);
+
+
+            return RedirectToPage("Index");
+        }
     }
 }

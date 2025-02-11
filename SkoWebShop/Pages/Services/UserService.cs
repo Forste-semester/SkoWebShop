@@ -15,7 +15,7 @@ namespace SkoWebShop.Pages.Services
         public void AddUser(User user)
         {
             users.Add(user);
-            Console.WriteLine($"{user} has been added");
+            Console.WriteLine($"{user.FirstName} has been added");
         } 
 
         public void PrintAllUsers ()
@@ -28,6 +28,22 @@ namespace SkoWebShop.Pages.Services
             }
 
 
+        }
+        public User GetUserById(string email)
+        {
+            foreach (var user in users)
+            {
+                if(user.Email == email) return user;
+            }
+            return null;
+        }
+        public User GetUserByLogin(string email, string password)
+        {
+            foreach (var user in users)
+            {
+                if (user.Email == email && user.Password == password) return user;
+            }
+            return null;
         }
     }
 }
