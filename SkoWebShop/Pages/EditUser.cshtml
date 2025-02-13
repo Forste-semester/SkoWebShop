@@ -3,14 +3,13 @@
 @{
 }
 
-
 <h4 class="mb-3">Billing address</h4>
 
 <form method="post" class="needs-validation">
     <div class="row g-3">
         <div class="col-sm-6">
-            <label asp-for="NewUser.FirstName" class=" form-label">First Name</label>
-            <input asp-for="NewUser.FirstName" type="text" class="form-control" name="First Name" id="firstName" required>
+            <label asp-for="NewUser.FirstName" class="form-label">First Name</label>
+            <input asp-for="NewUser.FirstName" type="text" class="form-control" name="NewUser.FirstName" id="firstName" required>
             <div class="invalid-feedback">
                 Please fill out this field.
             </div>
@@ -31,7 +30,7 @@
         </div>
         <div class="col-sm-4">
             <label asp-for="NewUser.PostalCode" class="form-label">Postal Code</label>
-            <input asp-for="NewUser.PostalCode" type="number" class="form-control" name="NewUser.PostalCode" id="postalCode" placeholder="" required>
+            <input asp-for="NewUser.PostalCode" type="number" class="form-control" name="NewUser.PostalCode" id="postalCode" required>
             <div class="invalid-feedback">
                 Please fill out this field.
             </div>
@@ -43,13 +42,62 @@
                 Please fill out this field.
             </div>
         </div>
-        <div class="col-sm-4">
+        @* <div class="col-sm-4">
             <label asp-for="NewUser.Email" class="form-label">Email</label>
             <input asp-for="NewUser.Email" type="email" class="form-control" name="NewUser.Email" id="email" placeholder="email@hotmail.com" required>
             <div class="invalid-feedback">
                 Please fill out this field.
             </div>
+        </div> *@
+
+        <!-- Payment Information Section -->
+        <h4 class="mb-3 mt-4">Payment options</h4>
+        <div class="my-3">
+            <div class="form-check">
+                <input asp-for="NewUser.CardType" id="credit" value="Dankort" type="radio" class="form-check-input" checked required>
+                <label class="form-check-label" for="credit">Dankort</label>
+            </div>
+            <div class="form-check">
+                <input asp-for="NewUser.CardType" id="debit" value="Visa" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="debit">Visa</label>
+            </div>
+            <div class="form-check">
+                <input asp-for="NewUser.CardType" id="paypal" value="PayPal" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Confirm changes</button>
+
+        <div class="col-sm-6">
+            <label asp-for="NewUser.CreditCardName" class="form-label">Card Name</label>
+            <input asp-for="NewUser.CreditCardName" type="text" class="form-control" name="NewUser.CreditCardName" id="creditCardName" placeholder="Name on the card" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <label asp-for="NewUser.CreditCardNumber" class="form-label">Card Number</label>
+            <input asp-for="NewUser.CreditCardNumber" type="text" class="form-control" name="NewUser.CreditCardNumber" id="creditCardNumber" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <label asp-for="NewUser.DateOfExpire" class="form-label">Date of Expiry</label>
+            <input asp-for="NewUser.DateOfExpire" type="month" class="form-control" name="NewUser.DateOfExpire" id="dateOfExpire" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <label asp-for="NewUser.CCV" class="form-label">CCV</label>
+            <input asp-for="NewUser.CCV" type="number" class="form-control" name="NewUser.CCV" pattern="[0-9]{3}" id="CCV" maxlength="3" minlength="3" placeholder="123" required>
+            <div class="invalid-feedback">
+                Please fill out this field.
+            </div>
+        </div>
     </div>
+
+    <button type="submit" class="btn btn-primary">Confirm changes</button>
 </form>

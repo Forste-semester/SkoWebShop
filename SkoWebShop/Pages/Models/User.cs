@@ -8,7 +8,7 @@
 
         public User()
         {
-            FirstName = "Test";
+            FirstName = "";
             LastName = "";
             StreetName = "";
             PostalCode = 0;
@@ -22,9 +22,10 @@
             this.CCV = 0;
             Password = "";
             IsLoggedIn = false;
+            NewsLetter = false;
         }
 
-        public User(string firstName, string lastName, string streetName, int postalCode, string city, string email, string phoneNumber,string creditCardName, int creditCardNumber, int cardExpirationMonth, int cardExpirationYear, int CCV)
+        public User(string firstName, string lastName, string streetName, int postalCode, string city, string email, string phoneNumber,string creditCardName, long creditCardNumber, int cardExpirationMonth, int cardExpirationYear, int CCV)
         {
 
             FirstName = firstName;
@@ -41,6 +42,7 @@
             this.CCV = CCV;
             Password = "";
             IsLoggedIn = false;
+            NewsLetter = false;
 
         }
 
@@ -62,7 +64,7 @@
 
         public string CreditCardName { get; set; }
 
-        public int CreditCardNumber { get; set; }
+        public long CreditCardNumber { get; set; }
 
         public DateTime DateOfExpire { get; set; }
 
@@ -70,6 +72,7 @@
         public string Password { get; set; }
 
         public bool IsLoggedIn { get; set; }
+        public bool NewsLetter { get; set; }
 
 
 

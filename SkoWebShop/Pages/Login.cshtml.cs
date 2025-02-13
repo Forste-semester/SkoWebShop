@@ -107,6 +107,12 @@ namespace SkoWebShop.Pages
                         Expires = DateTimeOffset.UtcNow.AddHours(24),
                         Path = "/"
                     });
+                    Response.Cookies.Append("newsLetterSubscribed", user.NewsLetter.ToString(), new CookieOptions
+                    {
+                        Expires = DateTimeOffset.UtcNow.AddHours(24),
+                        Path = "/"
+                    });
+
 
                     // Redirect to the logged-in page or dashboard
                     return RedirectToPage("/Index");
@@ -123,11 +129,33 @@ namespace SkoWebShop.Pages
             // Return the page if something went wrong
             return Page();
         }
+
+        public IActionResult OnPostSubscribeToNewsletter()
+        {
+            // Update the NewsLetter subscription status to true
+            Response.Cookies.Append("newsLetterSubscribed", "true", new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddHours(24),  // Set expiration date to 24 hours
+                Path = "/"  // Set path to ensure it’s accessible across the site
+            });
+
+            // Redirect to the current page to refresh the UI
+            return RedirectToPage();
+        }
+
+        public IActionResult OnPostUnsubscribeFromNewsletter()
+        {
+            // Remove the newsletter subscribed cookie
+            Response.Cookies.Delete("newsLetterSubscribed");
+
+            // Optionally, add logic to handle the unsubscribe process (e.g., removing from the newsletter database)
+            return RedirectToPage();
+        }
+
         public IActionResult OnPostLogout()
         {
             // Clear cookies
             Response.Cookies.Delete("isLoggedIn");
-            Response.Cookies.Delete("userId");
             Response.Cookies.Delete("userFirstName");
             Response.Cookies.Delete("userLastName");
             Response.Cookies.Delete("userStreetName");
@@ -139,6 +167,7 @@ namespace SkoWebShop.Pages
             Response.Cookies.Delete("userCreditCardNumber");
             Response.Cookies.Delete("userDateOfExpire");
             Response.Cookies.Delete("userCCV");
+            Response.Cookies.Delete("newsLetterSubscribed");
 
             Console.WriteLine("User Logged out");
 
