@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualBasic;
-using SkoWebShop.Pages.Models;
-using SkoWebShop.Pages.Services;
+using SkoWebShop.Models;
+using SkoWebShop.Services;
 using System.Reflection.Metadata.Ecma335;
 
 namespace SkoWebShop.Pages

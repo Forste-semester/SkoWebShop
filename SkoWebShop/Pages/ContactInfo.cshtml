@@ -104,5 +104,14 @@
     </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Confirm Payment</button>
+    @* <div class="d-flex justify-content-between">
+        <p class="mb-2">Subtotal</p>
+        <p class="mb-2">@Model.UserCart.TotalPrice().ToString("C")</p>
+    </div> *@
+    <button type="button" asp-page="ContactInfo" asp-page-handler="Confirm" class="btn btn-info btn-block btn-lg">
+        <div class="d-flex justify-content-between">
+            <span>@Request.Cookies["userCartTotal"] kr.</span>
+            <span>Confirm <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+        </div>
+    </button>
 </form>

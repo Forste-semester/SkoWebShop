@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using SkoWebShop.Pages.Models;
-using SkoWebShop.Pages.Services;
+using SkoWebShop.Models;
+using SkoWebShop.Services;
 
 Console.WriteLine("Hello, World!");
 

@@ -1,20 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SkoWebShop.Models;
+using SkoWebShop.Services;
 
 namespace SkoWebShop.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ShoeService shoeService;
+        public Shoe Shoe { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        [BindProperty]
+        public List<Shoe> shoes { get; set; }
+
+        public IndexModel(ShoeService shoeService)
         {
-            _logger = logger;
+            this.shoeService = shoeService;
         }
+
+
+
 
         public void OnGet()
         {
-
+            shoes = shoeService.GetAll();
         }
     }
 }

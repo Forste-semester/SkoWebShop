@@ -6,10 +6,10 @@ namespace SkoWebShop.Services
     {
         private Dictionary<int, Shoe> _services;
 
-        public ShoeService() 
+        public ShoeService()
         {
             _services = ShoeData.GetAll;
-        
+
         }
 
 

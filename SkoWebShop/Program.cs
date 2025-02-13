@@ -1,6 +1,3 @@
-
-using SkoWebShop.Pages.Services;
-
 using SkoWebShop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,3 +26,11 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.Zero; // Make it expire when the browser closes
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+});

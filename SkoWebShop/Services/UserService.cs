@@ -1,15 +1,15 @@
 ﻿using Microsoft.VisualBasic;
-using SkoWebShop.Pages.Models;
+using SkoWebShop.Models;
 
-namespace SkoWebShop.Pages.Services
+namespace SkoWebShop.Services
 {
     public class UserService
     {
         private List<User> users = new List<User>();
 
-        public UserService() 
-        { 
-        
+        public UserService()
+        {
+
         }
 
 
@@ -17,12 +17,13 @@ namespace SkoWebShop.Pages.Services
         {
             users.Add(user);
             Console.WriteLine($"{user.FirstName} has been added");
-        } 
+        }
 
-        public void PrintAllUsers ()
+        public void PrintAllUsers()
         {
-            
-            foreach (User user in users) {
+
+            foreach (User user in users)
+            {
 
                 Console.WriteLine($"{user.ToString}");
 
@@ -34,7 +35,7 @@ namespace SkoWebShop.Pages.Services
         {
             foreach (var user in users)
             {
-                if(user.Email == email) return user;
+                if (user.Email == email) return user;
             }
             return null;
         }

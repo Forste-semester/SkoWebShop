@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SkoWebShop.Pages.Models;
-using SkoWebShop.Pages.Services;
+using SkoWebShop.Models;
+using SkoWebShop.Services;
 using System;
 
 namespace SkoWebShop.Pages
@@ -15,7 +15,7 @@ namespace SkoWebShop.Pages
 
         public User NewUser { get; set; }
 
-        public List<User> Users { get; set; }
+       
 
         public LoginModel(UserService userService)
         {
@@ -38,7 +38,6 @@ namespace SkoWebShop.Pages
                 {
                     // User successfully logged in
                     user.IsLoggedIn = true;
-
                     Console.WriteLine($"{user.Email} Logged in");
 
                     // Store user information in cookies

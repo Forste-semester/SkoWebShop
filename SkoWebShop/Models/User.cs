@@ -1,10 +1,10 @@
-﻿namespace SkoWebShop.Pages.Models
+﻿namespace SkoWebShop.Models
 {
     public class User
     {
 
-      
-        
+
+
 
         public User()
         {
@@ -19,13 +19,15 @@
             CreditCardName = "";
             CreditCardNumber = 0;
             DateOfExpire = new DateTime();
-            this.CCV = 0;
+            CCV = 0;
             Password = "";
             IsLoggedIn = false;
             NewsLetter = false;
+            Cart = new Cart();
+
         }
 
-        public User(string firstName, string lastName, string streetName, int postalCode, string city, string email, string phoneNumber,string creditCardName, long creditCardNumber, int cardExpirationMonth, int cardExpirationYear, int CCV)
+        public User(string firstName, string lastName, string streetName, int postalCode, string city, string email, string phoneNumber, string creditCardName, long creditCardNumber, int cardExpirationMonth, int cardExpirationYear, int CCV)
         {
 
             FirstName = firstName;
@@ -43,8 +45,11 @@
             Password = "";
             IsLoggedIn = false;
             NewsLetter = false;
+            Cart = new Cart();
 
         }
+
+        public Cart Cart { get; set; }
 
         public string CardType { get; set; }
 

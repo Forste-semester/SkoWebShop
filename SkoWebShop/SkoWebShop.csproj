@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\MockData\**" />
+    <Content Remove="Pages\MockData\**" />
+    <EmbeddedResource Remove="Pages\MockData\**" />
+    <None Remove="Pages\MockData\**" />
+  </ItemGroup>
 
-    <Folder Include="Pages\MockData\" />
+  <ItemGroup>
+    <Content Include="Services\ShoeService.cs" />
+    <Content Include="Services\UserService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
 
     <None Include="wwwroot\Images\Jordan.jpg" />
   </ItemGroup>
